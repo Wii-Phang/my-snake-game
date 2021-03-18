@@ -1,6 +1,7 @@
 const scoreDisplay = document.getElementsByClassName('score');
 const grid = document.querySelector('.grid');
-const startBtn = document.getElementsByClassName('startBtn');
+const startBtn = document.getElementsByClassName('btn');
+const titleDisplay = document.getElementsByClassName('title__content');
 
 const width = 10;
 let score = 0;
@@ -19,12 +20,14 @@ function startGame() {
     //remove apple
     squares[appleIndex].classList.remove('apple')
 
-
     clearInterval(timerId)
     currentSnake = [2, 1, 0]
 
     score = 0
-    scoreDisplay.textContent = score
+    scoreDisplay[0].textContent = score
+
+    startBtn[0].innerHTML = "Restart"
+    titleDisplay[0].innerHTML = `Welcome to <br>Nokia 3310-style Snake Game`
 
     direction = 1
     intervalTime = 1000
@@ -60,10 +63,14 @@ function move() {
         (currentSnake[0] % width === 0 && direction === -1) || //if hit left wall
         (currentSnake[0] - width < 0 && direction === -width) || //if hit up wall
         (currentSnake[0] % width === 9 && direction === 1) || //if hit right wall
-        (currentSnake[0] + width >= width * width && direction === width) //if hit down wall
-    )
-
+        (currentSnake[0] + width >= width * width && direction === width) || //if hit down wall
+        squares[currentSnake[0] + direction].classList.contains('snake')
+    ) {
+        titleDisplay[0].innerHTML = "Game Over!"
         return clearInterval(timerId)
+    }
+
+
 
     //move the snake
     const tail = currentSnake.pop()

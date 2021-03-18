@@ -5,20 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c27aae227a.js" crossorigin="anonymous"></script>
     <title>Snake Game - Nokia 3310</title>
     <link rel="stylesheet" href="snakestyle.css">
 </head>
 
 <body>
+    <div class="back-button-container">
+        <a href="index.html" class="bk-link">
+            <div class="bk-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <i class="fas fa-angle-double-left"></i>Back
+            </div>
+        </a>
+    </div>
     <div class="container">
         <div class="title">
-            <h1>Welcome to Nokia 3310-style Snake Game </h1>
+            <h1 class="title__content">Welcome to <br>Nokia 3310-style Snake Game</h1>
         </div>
         <div class="scoreBoard">Score: <span class="score"></span></div>
         <div class="grid"></div>
 
         <div class="button">
-            <button class="startBtn">Start Game</button>
+            <button class="btn btn-start">Start</button>
         </div>
     </div>
 
